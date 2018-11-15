@@ -10,5 +10,5 @@ import ReactDOM from 'react-dom';
 // // unregister() to register() below. Note this comes with some pitfalls.
 // // Learn more about service workers: http://bit.ly/CRA-PWA
 // serviceWorker.unregister();
-import Index from "./js/index"
+import Index from './js/index';
 ReactDOM.render(<Index />, document.getElementById('root'));

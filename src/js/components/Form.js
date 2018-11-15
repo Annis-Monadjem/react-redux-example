@@ -1,19 +1,21 @@
 // src/js/components/Form.js
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import uuidv1 from "uuid";
-import { addArticle } from "../actions/index";
-const mapDispatchToProps = dispatch => {
-  
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import uuidv1 from 'uuid';
+import { addArticle } from '../actions/index';
+const mapDispatchToProps = (dispatch) => {
   return {
-    addArticle: article =>{alert(JSON.stringify(article)); dispatch(addArticle(article))}
+    addArticle: (article) => {
+      alert(JSON.stringify(article));
+      dispatch(addArticle(article));
+    },
   };
 };
 class ConnectedForm extends Component {
   constructor() {
     super();
     this.state = {
-      title: ""
+      title: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +29,7 @@ class ConnectedForm extends Component {
     const id = uuidv1();
     alert(JSON.stringify(this.props));
     this.props.addArticle({ title, id });
-    this.setState({ title: "" });
+    this.setState({ title: '' });
   }
   render() {
     const { title } = this.state;
@@ -50,5 +52,8 @@ class ConnectedForm extends Component {
     );
   }
 }
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+const Form = connect(
+  null,
+  mapDispatchToProps
+)(ConnectedForm);
 export default Form;
